@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide Javascript Code From Client</title>
+</head>
+<body>
+    <script>
+        //DISABLE RIGHT CLICK
+        document.addEventListener("contextmenu", function(e){
+            e.preventDefault();
+        }, false);
+
+        //DISABLE SHORTCUT KEYS can't use ctl+u
+        document.addEventListener("keydown", function(e){
+            if(e.ctrlKey || e.keyCode==123){
+                e.stopPropagation();
+                e.preventDefault();
+            }
+        });
+    </script>
+    <h2>This the test page.</h2>
+    <p style="text-align: center;">The visitor can't right click on this page.</p>
+    <p style="text-align: center;">They also can't see source code by click F12 and ctrl+u also.</p>
+</body>
+</html>
